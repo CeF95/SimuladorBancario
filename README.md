@@ -1,6 +1,10 @@
 # SIMULADOR BANCARIO
 --------------------------------
 ##### Simulador de Cola de Atención al Cliente para una sucursal bancaria, aplicando los conceptos de Pilas y Colas implementados desde cero con nodos y punteros en Java
+
+<div align="left">
+docs/images/Casos de uso.png
+
 -----------------------------------------------
 ## Estructura del simulador
 ```text
@@ -51,7 +55,7 @@ Si llega un cliente nuevo a la sucursal:
 >   -Se genera un registro automático en `manuales.txt` para auditoría externa.
 >   -Nota: *Si lo desea puede copiar los datos de `manuales.txt` a `clientes.txt`*
 
-### 4. Atención al Cliente (Opción 3 - Crucial)
+### 4. Atención al Cliente (Opción 3)
 Esta opción ejecuta la lógica principal de estructuras de datos:
 > 1.  **Desencolar:** Se retira al cliente que está al **frente** de la Cola (el primero que llegó).
 >
