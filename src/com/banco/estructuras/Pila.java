@@ -19,7 +19,7 @@ public class Pila {
     public void mostrar() {
         Nodo temp = tope;
         if (temp == null) 
-            System.out.println("La pila está vacía.");
+            System.out.println("No se ha atendido a ningún cliente aún");
         while (temp != null) {
             System.out.println(temp.cliente);
             temp = temp.siguiente;
