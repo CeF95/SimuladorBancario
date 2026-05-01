@@ -75,18 +75,35 @@ public class SimuladorBancario {
     }
     
     private static void agregarClienteManualmente() {
-        System.out.print("Ingrese el ID del cliente: ");
-        String id = sc.nextLine();
+       String idStr = "";
+        int idVal = 0;
+        boolean idValido = false;
+
+        // Validación para el ID
+        while (!idValido) {
+            System.out.print("Ingrese el ID del cliente (solo números): ");
+            idStr = sc.nextLine();
+            try {
+                idVal = Integer.parseInt(idStr);
+                idValido = true; 
+            } catch (NumberFormatException e) {
+                System.out.println("Error: El ID debe ser un número entero. No ingrese letras ni símbolos.");
+            }
+        }
+
         System.out.print("Ingrese el nombre del cliente: ");
         String nombre = sc.nextLine();
+        
         System.out.print("Ingrese el servicio del cliente: ");
         String servicio = sc.nextLine();
-        Cliente nuevoCliente = new Cliente(Integer.parseInt(id), nombre, servicio);
+
+        // Usamos idVal que ya es un entero validado
+        Cliente nuevoCliente = new Cliente(idVal, nombre, servicio);
         colaClientes.encolar(nuevoCliente);
         System.out.println("Cliente agregado a la cola.");
 
         try (PrintWriter pw = new PrintWriter(new FileWriter("data/manuales.txt", true))) {
-            pw.println( id + "," + nombre + ","+ servicio);
+            pw.println(idVal + "," + nombre + "," + servicio);
             System.out.println("Cliente encolado y registrado en manuales.txt");
         } catch (IOException e) {
             System.out.println("No se pudo escribir en el archivo de manuales, pero el cliente está en cola: " + e.getMessage());
