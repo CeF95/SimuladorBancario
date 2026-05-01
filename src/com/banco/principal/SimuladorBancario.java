@@ -85,7 +85,7 @@ public class SimuladorBancario {
         colaClientes.encolar(nuevoCliente);
         System.out.println("Cliente agregado a la cola.");
 
-        try (PrintWriter pw = new PrintWriter(new FileWriter("manuales.txt", true))) {
+        try (PrintWriter pw = new PrintWriter(new FileWriter("data/manuales.txt", true))) {
             pw.println(nombre + "," + dpi);
             System.out.println("Cliente encolado y registrado en manuales.txt");
         } catch (IOException e) {
