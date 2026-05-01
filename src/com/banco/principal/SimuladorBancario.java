@@ -62,7 +62,7 @@ public class SimuladorBancario {
     }
 
     private static void cargarClientesDesdeArchivo() {
-        try (BufferedReader br = new BufferedReader(new FileReader("clientes.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("data/clientes.txt"))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
@@ -84,6 +84,13 @@ public class SimuladorBancario {
         Cliente nuevoCliente = new Cliente(nombre, dpi);
         colaClientes.encolar(nuevoCliente);
         System.out.println("Cliente agregado a la cola.");
+
+        try (PrintWriter pw = new PrintWriter(new FileWriter("manuales.txt", true))) {
+            pw.println(nombre + "," + dpi);
+            System.out.println("Cliente encolado y registrado en manuales.txt");
+        } catch (IOException e) {
+            System.out.println("No se pudo escribir en el archivo de manuales, pero el cliente está en cola: " + e.getMessage());
+        }
     }
 
     private static void atenderCliente() {
