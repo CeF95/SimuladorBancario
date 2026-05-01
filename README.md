@@ -69,3 +69,26 @@ Esta opción ejecuta la lógica principal de estructuras de datos:
 ----------------------------------
 ## Ejemplo de la implementación
 
+<div align="center">
+
+### Opción 1
+![alt text](docs/images/Op1.png)
+
+### Opción 2
+![alt text](docs/images/Op2.png)
+
+### Opción 3
+![alt text](docs/images/Op3.png)
+
+### Opción 4
+![alt text](docs/images/Op4.png)
+![alt text](docs/images/Op4_1.png)
+
+### Opción 5
+![alt text](docs/images/Op5.png)
+
+### Opción 6
+![alt text](docs/images/Op6.png)
+
+### Error
+![alt text](docs/images/Try.png)
