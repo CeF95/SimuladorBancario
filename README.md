@@ -69,7 +69,7 @@ Esta opción ejecuta la lógica principal de estructuras de datos:
 ----------------------------------
 ## Ejemplo de la implementación
 
-<div align="center">
+<div align="left">
 
 ### Opción 1
 ![alt text](docs/images/Op1.png)
@@ -82,6 +82,7 @@ Esta opción ejecuta la lógica principal de estructuras de datos:
 
 ### Opción 4
 ![alt text](docs/images/Op4.png)
+
 ![alt text](docs/images/Op4_1.png)
 
 ### Opción 5
