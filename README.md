@@ -1,4 +1,4 @@
-# SimuladorBancario
+# SIMULADOR BANCARIO
 --------------------------------
 ##### Simulador de Cola de Atención al Cliente para una sucursal bancaria, aplicando los conceptos de Pilas y Colas implementados desde cero con nodos y punteros en Java
 -----------------------------------------------
@@ -65,3 +65,7 @@ Esta opción ejecuta la lógica principal de estructuras de datos:
 ##  Requisitos Técnicos
 > **Java JDK 11** o superior.
 > No requiere librerías externas (Implementación nativa de Nodos y Punteros).
+
+----------------------------------
+## Ejemplo de la implementación
+
