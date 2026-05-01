@@ -1,2 +1,5 @@
 Ana Garcia, 12345
 Luis Perez, 67890
+Feliciana Morales,99789
+Patricia Quiñonez,21189
+Rafael Quinteros,48920
