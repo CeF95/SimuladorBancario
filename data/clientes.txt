@@ -1,5 +1,10 @@
-Ana Garcia, 12345
-Luis Perez, 67890
-Feliciana Morales,99789
-Patricia Quiñonez,21189
-Rafael Quinteros,48920
+001,María López,Ventas
+002,Juan Pérez,Soporte
+003,Ana García,Ventas
+004,Pedro Rodríguez,Soporte
+005,Laura Martínez,Ventas
+006,Carlos Sánchez,Soporte
+007,Sofía Rodríguez,Ventas
+008,Luis Hernández,Soporte
+009,María Rodríguez,Ventas
+010,Juan Rodríguez,Soporte

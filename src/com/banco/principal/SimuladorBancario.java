@@ -64,8 +64,8 @@ public class SimuladorBancario {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos.length == 2) {
-                   colaClientes.encolar(new Cliente(datos[0].trim(), datos[1].trim()));
+                if (datos.length == 3) {
+                   colaClientes.encolar(new Cliente(Integer.parseInt(datos[0].trim()), datos[1].trim(), datos[2].trim()));  
                 }
             }
             System.out.println("Clientes cargados exitosamente desde el archivo.");
@@ -75,16 +75,18 @@ public class SimuladorBancario {
     }
     
     private static void agregarClienteManualmente() {
+        System.out.print("Ingrese el ID del cliente: ");
+        String id = sc.nextLine();
         System.out.print("Ingrese el nombre del cliente: ");
         String nombre = sc.nextLine();
-        System.out.print("Ingrese el DPI del cliente: ");
-        String dpi = sc.nextLine();
-        Cliente nuevoCliente = new Cliente(nombre, dpi);
+        System.out.print("Ingrese el servicio del cliente: ");
+        String servicio = sc.nextLine();
+        Cliente nuevoCliente = new Cliente(Integer.parseInt(id), nombre, servicio);
         colaClientes.encolar(nuevoCliente);
         System.out.println("Cliente agregado a la cola.");
 
         try (PrintWriter pw = new PrintWriter(new FileWriter("data/manuales.txt", true))) {
-            pw.println(nombre + "," + dpi);
+            pw.println( id + "," + nombre + ","+ servicio);
             System.out.println("Cliente encolado y registrado en manuales.txt");
         } catch (IOException e) {
             System.out.println("No se pudo escribir en el archivo de manuales, pero el cliente está en cola: " + e.getMessage());
