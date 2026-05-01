@@ -23,6 +23,12 @@ SimuladorBancario/
 ├── data/                         # Carpeta para archivos externos
 │   └── clientes.txt              # El archivo de texto con clientes existentes
 |   └── manuales.txt              # El archivo de texto con clientes cargados manualmente
+|
+|
+├── docs/                         # Documentación adicional
+│   └── images/                   
+│       ├── captura_menu.png
+│       └── diagrama_casos_uso.png
 │
 └── README.md                     # Documentación del proyecto
 ```
