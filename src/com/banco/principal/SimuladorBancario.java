@@ -9,10 +9,10 @@ import java.io.*;
 public class SimuladorBancario {
     private static Cola colaClientes = new Cola();
     private static Pila historialAtencion = new Pila();
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int option;
+        int opcion;
         do {
             System.out.println("\n--- SIMULADOR DE COLA BANCARIA ---");
             System.out.println("1. Cargar clientes desde archivo");
@@ -23,10 +23,77 @@ public class SimuladorBancario {
             System.out.println("6. Consultar ultimo atendido (tope de pila)");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
-            option = scanner.nextInt();
-            scanner.nextLine(); 
+            opcion = sc.nextInt();
+            sc.nextLine(); 
 
+            switch (opcion) {
+                case 1:
+                    cargarClientesDesdeArchivo();
+                    break;
+                case 2:
+                    agregarClienteManualmente();
+                    break;
+                case 3:
+                    atenderCliente();
+                    break;
+                case 4:
+                    System.out.println("\n--- COLA DE CLIENTES ---");
+                    colaClientes.mostrar();
+                    break;
+                case 5:
+                    System.out.println("\n--- HISTORIAL DE ATENCIÓN ---");
+                    historialAtencion.mostrar();
+                    break;
+                case 6:
+                    Cliente ultimoAtendido = historialAtencion.verTope();
+                    if (ultimoAtendido != null) {
+                        System.out.println("Último cliente atendido: " + ultimoAtendido);
+                    } else {
+                        System.out.println("No se ha atendido a ningún cliente aún.");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Saliendo del simulador...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intente nuevamente.");   
+            }
+        } while (opcion != 0);
+    }
 
+    private static void cargarClientesDesdeArchivo() {
+        try (BufferedReader br = new BufferedReader(new FileReader("clientes.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (datos.length == 2) {
+                   colaClientes.encolar(new Cliente(datos[0].trim(), datos[1].trim()));
+                }
+            }
+            System.out.println("Clientes cargados exitosamente desde el archivo.");
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
     }
     
+    private static void agregarClienteManualmente() {
+        System.out.print("Ingrese el nombre del cliente: ");
+        String nombre = sc.nextLine();
+        System.out.print("Ingrese el DPI del cliente: ");
+        String dpi = sc.nextLine();
+        Cliente nuevoCliente = new Cliente(nombre, dpi);
+        colaClientes.encolar(nuevoCliente);
+        System.out.println("Cliente agregado a la cola.");
+    }
+
+    private static void atenderCliente() {
+        if (colaClientes.estaVacia()) {
+            System.out.println("No hay clientes en la cola para atender.");
+            return;
+        }
+        Cliente clienteAtendido = colaClientes.desencolar();
+        historialAtencion.apilar(clienteAtendido);
+        System.out.println("Cliente atendido: " + clienteAtendido);
+    }
 }
+
